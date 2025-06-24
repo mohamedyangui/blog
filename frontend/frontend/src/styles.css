@@ -1,0 +1,38 @@
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.login-card, .register-card, .article-form {
+  max-width: 400px;
+  margin: 2rem auto;
+}
+.article-card {
+  margin: 1rem;
+}
+.article-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.comment-section {
+  margin-top: 2rem;
+}
+.comment {
+  margin-left: 20px;
+}
+.full-width {
+  width: 100%;
+}
+.analytics-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.mat-elevation-z8 {
+  margin: 2rem;
+}
+@import '~material-icons/iconfont/material-icons.css';

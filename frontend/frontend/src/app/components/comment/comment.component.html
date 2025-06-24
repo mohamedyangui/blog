@@ -1,0 +1,17 @@
+<div class="comments-container">
+  <mat-card *ngFor="let comment of comments">
+    <mat-card-content>
+      <p>{{ comment.content }}</p>
+      <p>By {{ comment.author.username }} on {{ comment.createdAt | date }}</p>
+      <button mat-button (click)="replyTo(comment._id)" *ngIf="isAuthenticated">Reply</button>
+    </mat-card-content>
+    <app-comment [comments]="comment.children" [articleId]="articleId" [parentId]="comment._id" (newComment)="emitComment()"></app-comment>
+  </mat-card>
+  <div *ngIf="isAuthenticated && !parentId">
+    <mat-form-field appearance="fill">
+      <mat-label>Comment</mat-label>
+      <textarea matInput [(ngModel)]="commentContent"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="postComment()">Post Comment</button>
+  </div>
+</div>

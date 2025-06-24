@@ -1,0 +1,28 @@
+.container {
+  padding: 20px;
+}
+
+.article-card, .comments-card {
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.article-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.comment {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

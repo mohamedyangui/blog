@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <span>Article Details</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/articles">Back to Articles</button>
+</mat-toolbar>
+<div class="container">
+  <mat-card *ngIf="article" class="article-card">
+    <mat-card-header>
+      <mat-card-title>{{ article.title }}</mat-card-title>
+      <mat-card-subtitle>By {{ article.author }} | {{ article.createdAt | date: 'medium' }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img *ngIf="article.image" [src]="article.image" alt="Article image" class="article-image">
+      <p>{{ article.content }}</p>
+      <mat-chip-list>
+        <mat-chip *ngFor="let tag of article.tags">{{ tag }}</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/articles/edit', article._id]" *ngIf="canEdit">Edit</button>
+      <button mat-raised-button color="warn" (click)="deleteArticle()" *ngIf="isAdmin">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="comments-card">
+    <mat-card-header>
+      <mat-card-title>Comments</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div *ngIf="isAuthenticated">
+        <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Add a comment</mat-label>
+            <textarea matInput formControlName="content" rows="3"></textarea>
+            <mat-error *ngIf="commentForm.get('content')?.hasError('required')">Comment is required</mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit" [disabled]="commentForm.invalid">Post Comment</button>
+        </form>
+      </div>
+      <div *ngFor="let comment of comments" class="comment">
+        <p>{{ comment.content }}</p>
+        <small>By {{ comment.author }} | {{ comment.createdAt | date: 'medium' }}</small>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
