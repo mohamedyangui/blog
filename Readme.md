@@ -6,8 +6,11 @@ This project is a collaborative blogging platform that allows multiple authors t
 **The project is divided into four main components, each serving a specific purpose:
 
 **user-service:** Manages user authentication, registration, and role management.
+
 **article-service**: Handles the creation, editing, deletion, and retrieval of articles and comments.
+
 **notification-service**: Provides real-time notifications for new comments using WebSockets (Socket.io).
+
 **frontend**: The Angular-based user interface that interacts with the microservices and displays the blog content.
 
 
