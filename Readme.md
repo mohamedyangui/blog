@@ -20,7 +20,8 @@ This project is a collaborative blogging platform that allows multiple authors t
 **Step-by-Step Setup
 **
 Clone the repository:
-git clone [<repository-url>](https://github.com/mohamedyangui/blog.git)
+
+git clone (https://github.com/mohamedyangui/blog.git)
 cd blog
 
 
